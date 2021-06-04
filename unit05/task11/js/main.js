@@ -5,20 +5,15 @@
 one 3 4 two
 
 */
-let div11 = document.querySelectorAll('.div-11') 
-console.log(div11)
 
 function t11() {
-    let out = " "
-    for (let i = 0; i < div11.length; ++i ) {
-        
-        out += div11[i].textContent +" "
-        console.log(out)
-       
-    }
-    document.querySelector('.out-11').innerHTML = out
+  let div11 = document.querySelectorAll('.div-11')
+
+  let out = ' '
+  for (let i = 0; i < div11.length; ++i) {
+    out += div11[i].textContent + ' '
+  }
+  document.querySelector('.out-11').innerHTML = out
 }
-
-
 
 document.querySelector('.b-11').onclick = t11
