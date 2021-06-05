@@ -8,8 +8,8 @@
 
 document.querySelector('.b-1').onclick = () => {
     let out = ''
-    for (i = 0; i < 3; i++) {
-        for (k = 0; k < 3; k++) {
+    for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 3; i++) {
             out += '*'
         }
         out += '_'
