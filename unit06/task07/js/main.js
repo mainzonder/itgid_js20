@@ -14,6 +14,5 @@ document.querySelector('.b-7').onclick = () => {
         }
         out += `<br>`
     }
-
     document.querySelector('.out-7').innerHTML = out
 }
