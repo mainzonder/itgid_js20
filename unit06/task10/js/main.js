@@ -34,34 +34,58 @@ document.querySelector('.b-10').onclick = () => {
     let out = ''
 
     for (let i = 0; i < 6; i++) {
+        if (i == 5) break
+        let a = 10
+        let counter = i * a++
         for (let k = 0; k <= 9; k++) {
-            if (k != 9) {
-                out += `0${k + 1}` + ' '
-            } else if ((k = 9)) {
-                out += `${k + 1}` + ' '
+            if (counter < 9) {
+                if (k == 9) {
+                    out += `${1 + k}` + ' '
+                } else if (k <= 9) {
+                    out += `0${1 + k}` + ' '
+                }
+            } else {
+                out += counter + +k + +1 + ' '
             }
-        }
-        out += `<br>`
-
-        for (j = 11; j <= 20; j++) {
-            out += j + ' '
-            if (j > 19) {
-                break
-            }
-        }
-        out += `<br>`
-        for (let j = 21; j <= 30; j++) {
-            out += j + ' '
-        }
-        out += `<br>`
-        for (let j = 31; j <= 40; j++) {
-            out += j + ' '
-        }
-        out += `<br>`
-        for (let j = 41; j <= 50; j++) {
-            out += j + ' '
         }
         out += `<br>`
     }
     document.querySelector('.out-10').innerHTML = out
 }
+
+//
+/*         if (i == 0) {
+            for (let k = 0; k <= 9; k++) {
+                if (k != 9) {
+                    out += `0${k + 1}` + ' '
+                } else if ((k = 9)) {
+                    out += `${k + 1}` + ' '
+                }
+            }
+        }
+        out += `<br>` */
+
+// let b = `${counter * i}`
+// if (+i / 10 === 1) {
+//     out += `0${i}` + ' '
+// }
+// out += `${k * i + i} `
+/*
+            let a = 1
+            jstart = `${a + 1}`
+            jmax = `${+5}`
+            for (let j = jstart; j <= jmax + 1; j++) {
+                out += j + ' '
+            }
+            out += `<br>` */
+/*
+        else if (i == 1) {
+            out += `<br>`
+            for (let j = 31; j <= 40; j++) {
+                out += j + ' '
+            }
+            out += `<br>`
+            for (let j = 41; j <= 50; j++) {
+                out += j + ' '
+            }
+        } */

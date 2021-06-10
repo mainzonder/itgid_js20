@@ -30,16 +30,14 @@
                    out += `0${k + 1}` + ' '
                    */
 
-document.querySelector('.b-1').onclick = () => {
+document.querySelector('.b-11').onclick = () => {
     let out = ''
 
-    for (let i = 0; i < 6; i++) {
-        for (let i = 0; i <= 9; i++) {
-            if (i !== 9) {
-                out += `0${i + 1}` + ' '
-            }
+    for (let i = 1; i < 11; i++) {
+        for (let k = 1; k <= 10; k++) {
+            out += `${i}*${k}= ${k * i}<br>`
         }
-        out += `<br>`
+        out += `<hr>`
     }
-    document.querySelector('.out-1').innerHTML = out
+    document.querySelector('.out-11').innerHTML = out
 }
