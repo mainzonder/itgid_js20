@@ -274,17 +274,18 @@ let out15 = document.querySelector('.out-15')
 let d15 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78]
 function f15() {
   let i15 = +document.querySelector('.i-15').value
-  let a = +d15.indexOf(i15)
-  for (let i = 0; i < d15.length; i++) {
-    if (a == -1) d15.push(+i15)
-    d15 = d15[i] + ' '
-    
-    // showArr('.out-15', d15)
-  }
 
-  
-  out15.innerHTML = out15
+  for (let i = 0; i < d15.length; i++) {
+    if (+d15.indexOf(i15) != -1) {
+      out15 = d15
+    } else {
+      out15 = d15.push(+i15)
+    }
+  }
+  document.querySelector('.out-15').innerHTML = out15
+  // showArr('.out-15', d15)
 }
+
 document.querySelector('.b-15').onclick = f15
 
 // Task 16
@@ -298,6 +299,8 @@ let d161 = [5, 6, 7, 8, 9]
 let d162 = [23, 24, 56, 87]
 
 function f16() {
+  d16 = d161.concat(d162)
+
   showArr('.out-16', d16)
 }
 
@@ -312,8 +315,21 @@ document.querySelector('.b-16').onclick = f16
 let d17 = []
 let d171 = ['a', 'b', 'c', 'd']
 let d172 = [1, 2, 3, 4, 5]
+let a = ''
 
 function f17() {
+  for (let i = 0; i < d171.length; i++) {
+    a = d171[i]
+    d17.push(a)
+  }
+
+  for (let i = 0; i < d172.length; i++) {
+    a = d172[i]
+    d17.push(a)
+  }
+
+  console.log(d17)
+
   showArr('.out-17', d17)
 }
 
@@ -324,10 +340,12 @@ document.querySelector('.b-17').onclick = f17
 // Во всех задачах где говорим второй, третий и т.д. имеем ввиду индекс
 // Вывод - по нажатию кнопки b-18
 // Вывод в out-18
-
+let out18 = document.querySelector('.out-18')
 let d18 = ['b', 'c', '45', 'e', 'z', 'y']
-
-function f18() {}
+function f18() {
+  let i18 = document.querySelector('.i-18').value
+  out18.innerHTML = d18.includes(i18)
+}
 
 document.querySelector('.b-18').onclick = f18
 
@@ -342,6 +360,7 @@ let d19 = [
   'payment',
   'method',
   'will',
+  'samayaDlinnayaStroka2',
   'automatically',
   'be',
   'charged',
@@ -350,8 +369,19 @@ let d19 = [
   'every',
 ]
 let maxString = ''
+let out19 = document.querySelector('.out-19')
+function f19() {
+  let a
+  for (let i = 0; i < d19.length; i++) {
+  
 
-function f19() {}
+    if (maxString.length < d19[i].length) {
+      maxString = d19[i]
+    }
+out19.textContent = maxString
+    console.log(maxString)
+  }
+}
 
 document.querySelector('.b-19').onclick = f19
 
@@ -363,6 +393,9 @@ document.querySelector('.b-19').onclick = f19
 
 let d20 = [4, 5, 6, 7, 8, 9, 10]
 
-function f20() {}
+function f20() {
+document.querySelector('.out-20').innerHTML =  d20.join("-")
+
+}
 
 document.querySelector('.b-20').onclick = f20
