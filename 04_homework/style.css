@@ -1,6 +1,27 @@
-html, body {
-    font-family: serif;
+html,
+body {
+  font-family: serif;
 }
 body {
-    margin: 20px;
+  margin: 20px;
+}
+.wrapper {
+  border: 3px solid green;
+  max-width: 150px;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+}
+.city {
+  font-weight: 600;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  padding: 0;
 }
