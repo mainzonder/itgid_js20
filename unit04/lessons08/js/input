@@ -1,0 +1,10 @@
+<!--
+                                                 <input
+                                                         class="form-control phone-one"
+                                                         type="text"
+                                                         ui-mask="+38 (999) 999-99-99"
+                                                         ng-model="phone"
+                                                         ng-keyup="phoneFormat($event)"
+                                                         placeholder="+38 (___) ___-__-__"
+                                                 />
+                                                 -->
