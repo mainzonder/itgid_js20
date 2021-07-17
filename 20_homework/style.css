@@ -1,0 +1,26 @@
+.numpad,
+.letters,
+.system {
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+}
+.numpad {
+    margin-top: 50px;
+}
+
+.key {
+    padding: 5px 10px;
+    border: 1px solid #000;
+    margin-left: 2px;
+}
+
+.i-11 {
+    display: block;
+    margin: 0 auto;
+}
+.active {
+    background-color: pink;
+    font-weight: bold;
+    color: black;
+}
