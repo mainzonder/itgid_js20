@@ -2,7 +2,7 @@
 /* Создайте блок div-1. Добавьте на него событие touchstart. Выведите в out-1 слово  touch если событие сработает. */
 
 function t1() {
-  document.querySelector('.out-1').innerHTML += ' touch '
+    document.querySelector('.out-1').innerHTML += ' touch '
 }
 
 document.querySelector('.div-1').addEventListener('touchstart', t1)
@@ -14,11 +14,11 @@ document.querySelector('.div-1').addEventListener('touchstart', t1)
 
 let count2 = 0
 function t2(e) {
-  if (e.type === 'touchstart') {
-    count2++
-  }
+    if (e.type === 'touchstart') {
+        count2++
+    }
 
-  document.querySelector('.out-2').innerHTML = count2
+    document.querySelector('.out-2').innerHTML = count2
 }
 document.querySelector('.div-2').addEventListener('touchstart', t2)
 // ваше событие здесь!!!
@@ -27,7 +27,7 @@ document.querySelector('.div-2').addEventListener('touchstart', t2)
 /*  Создайте блок div-3_1 и div-3_2. Добавьте на них событие touchstart. Выведите в out-3 номер блока 1 или 2 на котором сработало событие. */
 
 function t3(e) {
-  document.querySelector('.out-3').innerHTML = e.target.innerHTML
+    document.querySelector('.out-3').innerHTML = e.target.innerHTML
 }
 
 document.querySelector('.div-3_1').addEventListener('touchstart', t3)
@@ -38,11 +38,11 @@ document.querySelector('.div-3_2').addEventListener('touchstart', t3)
 /*  Создайте блок div-4. И кнопку b-4. При нажатии кнопки - добавляйте событие ontouchstart на блок div-4. При событии происходит вывод текста touch в out-4.  */
 
 function t4() {
-  document.querySelector('.out-4').innerHTML += 'touch'
+    document.querySelector('.out-4').innerHTML += 'touch'
 }
 
 document.querySelector('.b-4').onclick = () => {
-  document.querySelector('.div-4').addEventListener('touchstart', t4)
+    document.querySelector('.div-4').addEventListener('touchstart', t4)
 }
 // ваше событие здесь!!!
 
@@ -50,7 +50,7 @@ document.querySelector('.b-4').onclick = () => {
 /*  Дана кнопка b-5. При ее нажатии очищайте событие ontouchstart на блоке div-4. */
 
 function t5() {
-  document.querySelector('.div-4').removeEventListener('touchstart', t4)
+    document.querySelector('.div-4').removeEventListener('touchstart', t4)
 }
 document.querySelector('.b-5').onclick = t5
 
@@ -60,7 +60,7 @@ document.querySelector('.b-5').onclick = t5
 /*  Добавьте событие ontouchend на div-4. При его срабатывании выведите в out-6 слово touchend. */
 
 function t6() {
-  document.querySelector('.out-6').innerHTML += 'touchend'
+    document.querySelector('.out-6').innerHTML += 'touchend'
 }
 document.querySelector('.div-4').addEventListener('touchend', t6)
 // ваше событие здесь!!!
@@ -69,7 +69,7 @@ document.querySelector('.div-4').addEventListener('touchend', t6)
 /*  Дан блок div-7. Добавьте событие touch, при срабатывании которого окрашивайте блок в красный цвет. */
 
 function t7() {
-  this.style.backgroundColor = 'red'
+    this.style.backgroundColor = 'red'
 }
 
 document.querySelector('.div-7').addEventListener('touchmove', t7)
@@ -80,8 +80,8 @@ document.querySelector('.div-7').addEventListener('touchmove', t7)
 
 let a8 = ['red', 'green', 'blue', 'orange', 'pink', 'yellow']
 function t8() {
-  let i = Math.floor(Math.random() * a8.length)
-  document.querySelector('.div-8').style.backgroundColor = a8[i]
+    let i = Math.floor(Math.random() * a8.length)
+    document.querySelector('.div-8').style.backgroundColor = a8[i]
 }
 
 document.querySelector('.div-8').addEventListener('touchstart', t8)
@@ -91,7 +91,7 @@ document.querySelector('.div-8').addEventListener('touchstart', t8)
 /* Дан блок div-9. Добавьте событие ontouch. Выводите количество одновременных касаний в out-9. */
 
 function t9(e) {
-  document.querySelector('.out-9').innerHTML = e.targetTouches.length
+    document.querySelector('.out-9').innerHTML = e.targetTouches.length
 }
 
 document.querySelector('.div-9').addEventListener('touchstart', t9)
@@ -102,8 +102,8 @@ document.querySelector('.div-9').addEventListener('touchstart', t9)
 
 let baseW = document.querySelector('.div-10').clientWidth
 function t10() {
-  document.querySelector('.div-10').style.width = baseW + 'px'
-  baseW++
+    document.querySelector('.div-10').style.width = baseW + 'px'
+    baseW++
 }
 
 document.querySelector('.div-10').addEventListener('touchmove', t10)
@@ -114,10 +114,10 @@ document.querySelector('.div-10').addEventListener('touchmove', t10)
 /*  Дан блок div-11. Добавьте на него событие touch. При срабатывании выводите радиус события radiusX, radiusY. */
 
 function t11(e) {
-  console.log(e)
+    console.log(e)
 
-  console.log(e.targetTouches[0].radiusX)
-  console.log(e.targetTouches[0].radiusY)
+    console.log(e.targetTouches[0].radiusX)
+    console.log(e.targetTouches[0].radiusY)
 }
 
 document.querySelector('.div-11').addEventListener('touchstart', t11)
@@ -138,74 +138,43 @@ let count = 0 // переменная, которая указывает на н
 
 const imgMax = document.querySelector('.img-12-max')
 
+let maxCount = 0
+for (let i = 0; i < images.length - 1; i++) {
+    if (maxCount < i) {
+        maxCount = i
+    }
+}
+
+document.querySelector('.reset').onclick = () => {
+    images[count].classList.remove('active-img')
+    count = 0
+    images[0].classList.add('active-img')
+    imgMax.src = `img/1.png`
+}
+
+function nextFunction() {
+    images[count].classList.remove('active-img')
+    count++
+    if (count > images.length - 1) {
+        count = 0
+    }
+    images[count].classList.add('active-img')
+    imgMax.src = `img/${count + 1}.png`
+}
+
+function prevFunction() {
+    images[count].classList.remove('active-img')
+    count--
+    if (count < 0) {
+        count = images.length - 1
+    }
+    images[count].classList.add('active-img')
+    imgMax.src = `img/${count + 1}.png`
+}
 const next = document.querySelector('.next')
 next.onclick = nextFunction
 
 const prev = document.querySelector('.prev')
 prev.onclick = prevFunction
 
-let maxCount = 0
-for (let i = 0; i < images.length; i++) {
-  if (maxCount < i) {
-    maxCount = i
-  }
-}
-
-document.querySelector('.reset').onclick = () => {
-  images[count].classList.remove('active-img')
-  count = 0
-  images[0].classList.add('active-img')
-  imgMax.src = `img/1.png`
-}
-
-imgMax.src = `img/1.png`
-
-function nextFunction() {
-  count++
-
-  if (count === images.length) {
-    images[maxCount].classList.remove('active-img')
-    count = 0
-    images[count].classList.add('active-img')
-
-    imgMax.src = `img/1.png`
-  }
-  images[count].classList.add('active-img')
-  if (count !== 0) {
-    images[count - 1].classList.remove('active-img')
-    imgMax.src = `img/${count + 1}.png`
-  }
-}
-function prevFunction() {
-  if (count > 0) {
-    count--
-    images[count].classList.add('active-img')
-
-    imgMax.src = `img/${count + 1}.png`
-    images[count + 1].classList.remove('active-img')
-  }
-
-  if (count === 0) {
-    images[0].classList.add('active-img')
-    imgMax.src = `img/1.png`
-
-  }
-  
-  
-  if ( count-- &&  count < 0 || count === 0 ) {
-    count = maxCount
-    console.log(count)
-    images[0].classList.remove('active-img')
-    images[count].classList.add('active-img')
-  }
-  
- 
-     
-  
-
-
-  console.log('count :' + count)
-}
-
-// document.querySelector('.next').onclick = nextFunction
 // ваше событие здесь!!!
